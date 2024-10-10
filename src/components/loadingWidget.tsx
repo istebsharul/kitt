@@ -19,7 +19,7 @@ const LoadingWidget = () => {
     return (
         <div className="2xl:w-1/6 md:w-1/5 h-min absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg rounded-xl text-center z-10">
             <div className="">
-                <Image src="https://s3-alpha-sig.figma.com/img/df34/ff5d/de2e13b8b13ef90316e36338415b882b?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lbNdpXJEZpCLF~KVtFsGwnVHJMN7YiA8FtyMHNNmzvHa2N6JDdlV6rd20GV-MC3Sql~-zWshyEtecc6osLzrfiiWt89BNbycWeUx7kNLlF-T8cbbTG9AZ15keg6lMVcWkdugHKWUqtMxNklBbI561V0p0AVz1LzeLMwgEHiEB29C8s-pM-U6vNcQhRS-ipgLdwuEEioBwsJ8KXyPEY3NmZky6bwDvV6rQPDOQp1qxvQABzPKL9PHaz2xNrzEmMnBkwOgs8Tkp-WpzUalI3Rg58O13-OfVdLMMKeWKAt0iEUXbONUbgNQOUcT0qPQ~oXeQw5airpjlGDqNmKOOlRShA__" alt="loading icon" className="mx-auto" />
+                <Image src="https://s3-alpha-sig.figma.com/img/df34/ff5d/de2e13b8b13ef90316e36338415b882b?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lbNdpXJEZpCLF~KVtFsGwnVHJMN7YiA8FtyMHNNmzvHa2N6JDdlV6rd20GV-MC3Sql~-zWshyEtecc6osLzrfiiWt89BNbycWeUx7kNLlF-T8cbbTG9AZ15keg6lMVcWkdugHKWUqtMxNklBbI561V0p0AVz1LzeLMwgEHiEB29C8s-pM-U6vNcQhRS-ipgLdwuEEioBwsJ8KXyPEY3NmZky6bwDvV6rQPDOQp1qxvQABzPKL9PHaz2xNrzEmMnBkwOgs8Tkp-WpzUalI3Rg58O13-OfVdLMMKeWKAt0iEUXbONUbgNQOUcT0qPQ~oXeQw5airpjlGDqNmKOOlRShA__" alt="loading icon" height="100" width="100" className="mx-auto" />
             </div>
             <ul className="space-y-4 px-8 py-4 mb-1">
                 <li className="flex items-center space-x-4">

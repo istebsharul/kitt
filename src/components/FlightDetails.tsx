@@ -128,7 +128,9 @@ const FlightDetails: React.FC<FlightDetailsProps> = ({ flightSegments, handleDet
                                 <div className='w-1/5 mx-1 my-2 flex justify-start'>
                                     <Image
                                         src={segment.url}
-                                        className='w-full' alt={''}                                    />
+                                        className='w-full' alt={''} 
+                                        width={100}
+                                        height={100}                                   />
                                 </div>
                                 <div className="w-full flex flex-col items-start justify-start space-y-1">
                                     <span className="text-xs text-gray-500">{segment.airline} • {segment.flightNumber}</span>

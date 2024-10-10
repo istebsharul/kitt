@@ -35,6 +35,8 @@ const Result: React.FC<ResultProps> = ({
             <Image
               src={url}
               alt={airline}
+              width="100"
+              height="100"
               className="w-10"
             />
             <div className='flex flex-col'>
@@ -58,6 +60,8 @@ const Result: React.FC<ResultProps> = ({
             <Image
               src={url}
               alt={airline}
+              width="100"
+              height="100"
               className="w-10"
             />
             <div className='flex flex-col'>
