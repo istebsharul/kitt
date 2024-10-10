@@ -26,10 +26,10 @@ const Result: React.FC<ResultProps> = ({
   to
 }) => {
   return (
-    <div className="w-full h-[10.8rem] flex justify-between items-center bg-white rounded-lg border hover:bg-gray-50">
+    <div className="w-full h-[10.8rem] flex justify-between items-center rounded-lg border border-gray-300 hover:bg-gray-50">
       <div className='w-4/5 flex flex-col justify-between p-1'>
         {/* first */}
-        <div className='flex p-4'>
+        <div className='flex px-6 py-4'>
           <div className="w-3/4 flex items-center space-x-4">
             <img
               src={url}
@@ -52,7 +52,7 @@ const Result: React.FC<ResultProps> = ({
           </div>
         </div>
         {/* second */}
-        <div className='flex p-4'>
+        <div className='flex px-6 py-4'>
           <div className="w-3/4 flex items-center space-x-4">
             <img
               src={url}
