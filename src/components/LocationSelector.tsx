@@ -79,7 +79,7 @@ const LocationSelector: React.FC<LocationSelectorProps> = ({ placeholderValue, l
                 </div>
             </div>
             {isFocused && (
-                <div className="absolute top-16 left-0 border bg-white w-full shadow-sm rounded-md z-10">
+                <div className="absolute top-16 left-0 border bg-white w-full shadow-sm rounded-md z-10 mt-1">
                     {filteredLocations.map((location, index) => (
                         <div
                             key={index}
