@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { FiCircle } from "react-icons/fi";
 import { LuClock4 } from "react-icons/lu";
-import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 
 // Helper function to calculate layover time between segments
 const calculateLayover = (prevSegment: FlightSegment, nextSegment: FlightSegment) => {
@@ -126,10 +126,9 @@ const FlightDetails: React.FC<FlightDetailsProps> = ({ flightSegments, handleDet
                             {/* Flight Information */}
                             <div className="w-2/5 h-full mt-10 pl-8 flex justify-between items-start space-y-1">
                                 <div className='w-1/5 mx-1 my-2 flex justify-start'>
-                                    <img
+                                    <Image
                                         src={segment.url}
-                                        className='w-full'
-                                    />
+                                        className='w-full' alt={''}                                    />
                                 </div>
                                 <div className="w-full flex flex-col items-start justify-start space-y-1">
                                     <span className="text-xs text-gray-500">{segment.airline} • {segment.flightNumber}</span>

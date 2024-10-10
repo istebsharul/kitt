@@ -10,7 +10,6 @@ import SlidingForm from '@/components/SlidingForm';
 import FlightDetails from '@/components/FlightDetails';
 import { PagesTopLoader } from 'nextjs-toploader/pages';
 import ResultSkeleton from '@/components/ResultSkeleton';
-import { setTime } from 'react-datepicker/dist/date_utils';
 
 const Page = () => {
   const searchParams = useSearchParams();
@@ -140,24 +139,48 @@ const Page = () => {
     setIsDetailVisible((prev) => !prev);
   }
   // Handle clicks outside the form to close it
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (formRef.current && !formRef.current.contains(event.target as Node)) {
+  //       setIsFormVisible(false);
+  //     }
+  //     if (detailsRef.current && !detailsRef.current.contains(event.target as Node)) {
+  //       setIsDetailVisible(false);
+  //     }
+  //   };
+
+  //   // Add event listener for clicks
+  //   document.addEventListener('mousedown', handleClickOutside);
+
+  //   // Cleanup the event listener on unmount
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   };
+  // }, []);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (formRef.current && !formRef.current.contains(event.target as Node)) {
+      const targetElement = event.target as Node;
+      
+      // Ensure the form stays open when interacting with the date picker or form inputs
+      if (formRef.current && !formRef.current.contains(targetElement) && 
+          !document.querySelector('.react-datepicker__portal')?.contains(targetElement)) {
         setIsFormVisible(false);
       }
-      if (detailsRef.current && !detailsRef.current.contains(event.target as Node)) {
+      if (detailsRef.current && !detailsRef.current.contains(targetElement)) {
         setIsDetailVisible(false);
       }
     };
-
+  
     // Add event listener for clicks
     document.addEventListener('mousedown', handleClickOutside);
-
+  
     // Cleanup the event listener on unmount
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+  
 
   return (
     <div className="w-full h-full bg-gray-100 min-h-screen flex flex-col justify-start items-center">
@@ -203,7 +226,7 @@ const Page = () => {
               Showing {results.length} of 767 results
             </p>
             {results.map((flight, index) => (
-              <div onClick={handleDetailsView}>
+              <div key={index} onClick={handleDetailsView}>
                 <Result
                   key={index}
                   airline={flight.airline}
@@ -224,11 +247,11 @@ const Page = () => {
 
       {/* Form div */}
       <div
-        ref={formRef} // Assign the ref to the form div
+        // ref={formRef} // Assign the ref to the form div
         className={`absolute top-0 left-0 right-0 bg-white p-4 shadow-lg transition-transform duration-300 ${isFormVisible ? 'transform translate-y-0' : 'transform -translate-y-full'
           }`}
       >
-        <SlidingForm fromAirport={fromAirport} toAirport={toAirport} />
+        <SlidingForm  setIsFormVisible={setIsFormVisible}/>
       </div>
 
       {/* Flight details */}

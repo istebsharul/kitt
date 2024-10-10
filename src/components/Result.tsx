@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface ResultProps {
   airline: string;
@@ -31,7 +32,7 @@ const Result: React.FC<ResultProps> = ({
         {/* first */}
         <div className='flex px-6 py-4'>
           <div className="w-3/4 flex items-center space-x-4">
-            <img
+            <Image
               src={url}
               alt={airline}
               className="w-10"
@@ -54,7 +55,7 @@ const Result: React.FC<ResultProps> = ({
         {/* second */}
         <div className='flex px-6 py-4'>
           <div className="w-3/4 flex items-center space-x-4">
-            <img
+            <Image
               src={url}
               alt={airline}
               className="w-10"

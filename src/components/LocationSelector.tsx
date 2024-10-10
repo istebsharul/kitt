@@ -12,7 +12,7 @@ type LocationSelectorProps = {
 
 const LocationSelector: React.FC<LocationSelectorProps> = ({ placeholderValue, locations, location, setLocation, setLocationCode }) => {
     const formattedLocation = location.slice(0, 3) + ' ' + location.slice(3);
-
+    
     const [inputValue, setInputValue] = useState(formattedLocation);
     const [isFocused, setIsFocused] = useState(false);
     const [showFiltered, setShowFiltered] = useState(false);
@@ -20,7 +20,7 @@ const LocationSelector: React.FC<LocationSelectorProps> = ({ placeholderValue, l
 
     useEffect(() => {
         setInputValue(formattedLocation);
-    }, [location]);
+    }, [location, formattedLocation]); // Include formattedLocation here
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -42,16 +42,16 @@ const LocationSelector: React.FC<LocationSelectorProps> = ({ placeholderValue, l
         : locations;
 
     return (
-        <div className="relative w-full " ref={dropdownRef}>
+        <div className="relative w-full" ref={dropdownRef}>
             <div
                 onClick={() => {
                     setIsFocused(true);
                     setShowFiltered(false);
                 }}
-                className={`relative w-full h-[4rem] flex justify-between items-center border ${isFocused || inputValue ? 'border-blue-500' : 'border-gray-200'} hover:border-gray-300 rounded-md p-4 relative`}
+                className={`relative w-full h-[4rem] flex justify-between items-center border ${isFocused || inputValue ? 'border-blue-500' : 'border-gray-200'} hover:border-gray-300 rounded-md p-4`}
             >
                 <TbCurrentLocation className={`${inputValue || isFocused ? 'absolute bottom-3 left-[1.2rem] w-4 h-4 transform-all' : 'w-7 h-7'} mr-2 text-gray-300`} />
-                <div className={`w-full ${inputValue || isFocused ? 'ml-7':''}`}>
+                <div className={`w-full ${inputValue || isFocused ? 'ml-7' : ''}`}>
                     {/* Animated Placeholder */}
                     <label
                         className={`absolute transition-all duration-300 ease-in-out text-gray-500 z-10 ${inputValue || isFocused
@@ -61,7 +61,7 @@ const LocationSelector: React.FC<LocationSelectorProps> = ({ placeholderValue, l
                     >
                         {placeholderValue}
                     </label>
-                    <div className='absolute bottom-2 b w-fit h-min bg-red-400'>
+                    <div className='absolute bottom-2 w-fit h-min bg-red-400'>
                         <input
                             type="text"
                             id="location"
@@ -74,7 +74,7 @@ const LocationSelector: React.FC<LocationSelectorProps> = ({ placeholderValue, l
                         />
                     </div>
                 </div>
-                <div className="ml-">
+                <div>
                     {isFocused ? <FiChevronUp className="w-3 h-3 text-gray-400" /> : <FiChevronDown className="w-3 h-3 text-gray-400" />}
                 </div>
             </div>
