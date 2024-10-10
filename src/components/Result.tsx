@@ -79,7 +79,7 @@ const Result: React.FC<ResultProps> = ({
         </div>
       </div>
 
-      <div className="w-full md:w-1/5 h-full border-l md:p-4 px-2 pb-2 flex md:flex-col md:justify-end justify-between md:items-start items-end">
+      <div className="w-full md:w-1/5 md:h-40 border-l px-2 pb-2 flex md:flex-col md:justify-end justify-between md:items-start items-end">
         <div className='px-1'>
           <span className="block text-sm text-gray-500">from</span>
           <span className="block md:text-lg text-md">{price}</span>
