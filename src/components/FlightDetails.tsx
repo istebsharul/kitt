@@ -80,7 +80,7 @@ const FlightDetails: React.FC<FlightDetailsProps> = ({ flightSegments, handleDet
                 {flightSegments.map((segment, index) => (
                     <div key={index} className="w-full flex flex-col">
                         <div className='w-full flex justify-between items-start'>
-                            <div className='w-2/3 flex flex-col'>
+                            <div className='md:w-2/3 w-1/2 flex flex-col'>
                                 {/* Departure Information */}
                                 <div className="w-full flex justify-start items-start space-x-4">
                                     <div className="flex flex-col items-center">
@@ -124,8 +124,8 @@ const FlightDetails: React.FC<FlightDetailsProps> = ({ flightSegments, handleDet
                             </div>
 
                             {/* Flight Information */}
-                            <div className="w-2/5 h-full mt-10 pl-8 flex justify-between items-start space-y-1">
-                                <div className='w-1/5 mx-1 my-2 flex justify-start'>
+                            <div className="md:w-2/5 w-1/2 h-full md:mt-10 mt-5 pl-8 flex flex-col md:flex-row justify-between items-start space-y-1">
+                                <div className='md:w-1/5 w-1/2 mx-1 my-2 flex justify-start'>
                                     <Image
                                         src={segment.url}
                                         className='w-full' alt={''} 

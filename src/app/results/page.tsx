@@ -35,7 +35,7 @@ const Page = () => {
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   };
 
-  const formattedDates = `${formatDate(departureDate)} - ${formatDate(returnDate)}`;
+  const formattedDates = `${formatDate(departureDate)} ${ returnDate? '-'+formatDate(returnDate):''}`;
 
   // Helper function to find airport name by code
   const getAirportNameByCode = (code: string | null) => {
@@ -185,18 +185,18 @@ const Page = () => {
   return (
     <div className="w-full h-full bg-gray-100 min-h-screen flex flex-col justify-start items-center">
       <div className='w-full border-b flex justify-center items-center'>
-        <div className='w-full max-w-5xl p-8 flex justify-between items-center'>
-          <div className='flex justify-between items-center p-2 rounded-full border' onClick={toggleForm}>
+        <div className='w-full max-w-5xl md:p-8 p-2 flex justify-between items-center md:bg-gray-100 bg-gray-300'>
+          <div className='md:w-2/3 w-10/12 flex justify-between items-center p-2 rounded-full border bg-white' onClick={toggleForm}>
             {/* Display the airport code and full name */}
-            <div className='border-r px-4 truncate flex'>
+            <div className='border-r md:px-4 px-2 truncate flex'>
               <span className='max-w-[200px] overflow-hidden'>{fromAirport}</span>
-              <span>...</span>
+              <span className='md:block hidden'>...</span>
             </div>
-            <div className='border-r px-4 truncate flex'>
+            <div className='border-r md:px-4 px-2 truncate flex'>
               <span className='max-w-[200px] overflow-hidden'>{toAirport}</span>
-              <span>...</span>
+              <span className='md:block hidden'>...</span>
             </div>
-            <div className='border-r px-4 font-semibold text-gray-900'>{formattedDates}</div>
+            <div className='border-r px-4 font-semibold text-center text-gray-900 text-sm'>{formattedDates}</div>
             <div className='ml-4 p-2 bg-gray-200 rounded-full flex justify-center items-center cursor-pointer'>
               <CgSearch />
             </div>
@@ -208,9 +208,10 @@ const Page = () => {
           </Link>
         </div>
       </div>
-      <div className='absolute top-20'>
+      <div className=''>
         <PagesTopLoader
-          height={10}
+          color="#3A6889"
+          height={4}
           speed={800}
           crawlSpeed={900}
           showSpinner={false}
@@ -257,7 +258,7 @@ const Page = () => {
       {/* Flight details */}
       <div
         ref={detailsRef}
-        className={`w-1/2 h-full absolute top-0 right-0 right-0 bg-transparent p-4 transition-transform duration-300 ${isDetailVisible ? 'transform -translate-x-0' : 'transform translate-x-full'
+        className={`md:w-1/2 w-11/12 h-full absolute top-0 right-0 right-0 bg-transparent p-4 transition-transform duration-300 ${isDetailVisible ? 'transform -translate-x-0' : 'transform translate-x-full'
           }`}
       >
         <FlightDetails handleDetailsView={handleDetailsView} flightSegments={flightSegments} />

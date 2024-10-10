@@ -36,7 +36,7 @@ export function DatePickerDemo({ labelValue, date, setDate }: DateProps) {
                     </label>
                     <div className="flex items-center">
                         <CalendarIcon className={`absolute ${date ? "top-[2.2rem]" : "top-[1.4rem]"} mr-2 h-4 w-4 text-gray-300`} />
-                        <div className={`absolute left-10 top-8 text-gray-700`}>{date && format(date, "dd/MM/yyyy")}</div>
+                        <div className={`absolute left-10 top-8 text-gray-700 `}>{date && format(date, "dd/MM/yyyy")}</div>
                     </div>
                 </Button>
             </PopoverTrigger>
