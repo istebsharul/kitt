@@ -6,7 +6,8 @@ const ResultSkeleton = () => {
     return (
         <div className="w-full max-w-5xl space-y-6 p-8 bg">
             <NextTopLoader
-                height={10}
+                height={4}
+                color="#3A6889"
                 speed={800}
                 crawlSpeed={900}
                 showSpinner={false}
